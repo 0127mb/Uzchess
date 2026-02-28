@@ -6,7 +6,7 @@ import { PurchasedCourses } from "src/features/courses/infrastructure/typeorm/pu
 import { UsersLessons } from "src/features/courses/infrastructure/typeorm/users-lessons.entity";
 import { BookReviewsEntity } from "src/features/courses/infrastructure/typeorm/book-reviews.entity";
 import { BookLikesEntity } from "src/features/courses/infrastructure/typeorm/book-likes.entity";
-import { NewsViewsEntity } from "src/features/courses/infrastructure/typeorm/news-views.entity";
+import { NewsViewsEntity } from "src/news/domain/entites/news-views.entity";
 import { BaseEntity, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 
@@ -20,21 +20,21 @@ export class User extends BaseEntity {
     profileImage?: string
     @Column({ type: "varchar", length: 64, unique: true })
     login!: string
-    @OneToMany(() => OtpCodes, otp => otp.user)
+    @OneToMany(() => OtpCodes, (otp: any) => otp.user)
     Otpcode: OtpCodes[]
-    @OneToMany(() =>PurchasedCourses,purchased => purchased.user)
+    @OneToMany(() =>PurchasedCourses, (purchased: any) => purchased.user)
     purchasedcourses:PurchasedCourses[]
-    @OneToMany(()=>CourseReviews,review => review.user)
+    @OneToMany(()=>CourseReviews, (review: any) => review.user)
     reviews:CourseReviews[]
-    @OneToMany(() => LikedCourse,liked =>liked.user)
+    @OneToMany(() => LikedCourse, (liked: any) => liked.user)
     Liked:LikedCourse[]
-    @OneToMany(() => UsersLessons, ul => ul.user)
+    @OneToMany(() => UsersLessons, (ul: any) => ul.user)
     usersLessons: UsersLessons[]
-    @OneToMany(() => BookReviewsEntity, review => review.user)
+    @OneToMany(() => BookReviewsEntity, (review: any) => review.user)
     bookReviews: BookReviewsEntity[]
-    @OneToMany(() => BookLikesEntity, like => like.user)
+    @OneToMany(() => BookLikesEntity, (like: any) => like.user)
     bookLikes: BookLikesEntity[]
-    @OneToMany(() => NewsViewsEntity, view => view.user)
+    @OneToMany(() => NewsViewsEntity, (view: any) => view.user)
     newsViews: NewsViewsEntity[]
     @Column({ type: "enum" })
     loginType!: Logintype

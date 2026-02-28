@@ -1,6 +1,6 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { CourseEntity } from "src/features/courses/infrastructure/typeorm/Course.entity";
-import { BookEntity } from "src/features/courses/infrastructure/typeorm/book.entity";
+import { BookEntity } from "src/features/books/domain/entites/book.entity";
 
 @Entity("Difficulty")
 export class Difficulty extends BaseEntity {

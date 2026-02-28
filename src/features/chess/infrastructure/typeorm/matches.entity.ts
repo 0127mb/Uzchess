@@ -1,7 +1,7 @@
 import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { PlayersEntity } from "./players.entity";
-import { MatchType } from "src/constants/enum/matchType.enum";
-import { WinnerType } from "src/constants/enum/winnerType.enum";
+import { Muchtype } from "src/constants/enum/Matchtype.enum";
+import { Winnertype } from "src/constants/enum/Winnertype.enum";
 
 @Entity("Matches")
 export class MatchesEntity extends BaseEntity {
@@ -20,8 +20,8 @@ export class MatchesEntity extends BaseEntity {
     @Column({ type: "int" })
     secondPlayerResult: number;
 
-    @Column({ type: "enum", enum: MatchType })
-    type: MatchType;
+    @Column({ type: "enum", enum: Muchtype })
+    type: Muchtype;
 
     @Column({ type: "int" })
     moves: number;
@@ -29,6 +29,6 @@ export class MatchesEntity extends BaseEntity {
     @Column({ type: "date" })
     date: Date;
 
-    @Column({ type: "enum", enum: WinnerType })
-    winner: WinnerType;
+    @Column({ type: "enum", enum: Winnertype })
+    winner: Winnertype;
 }

@@ -4,7 +4,7 @@ import { BookCategoryEntity } from "./book-category.entity";
 import { Languages } from "src/features/languagges/infrastracture/typeorm/languages.entity";
 import { Difficulty } from "src/features/difficulty/infrastracture/typeorm/difficulty.entity";
 import { BookReviewsEntity } from "./book-reviews.entity";
-import { BookLikesEntity } from "./book-likes.entity";
+import { BookLikesEntity } from "./book-likes.entity"; 
 
 @Entity("Books")
 export class BookEntity extends BaseEntity {
@@ -50,10 +50,10 @@ export class BookEntity extends BaseEntity {
     @Column({ type: "date" })
     pubDate: Date;
 
-    @OneToMany(() => BookReviewsEntity, review => review.book)
+    @OneToMany(() => BookReviewsEntity, (review: any) => review.book)
     reviews: BookReviewsEntity[];
 
-    @OneToMany(() => BookLikesEntity, like => like.book)
+    @OneToMany(() => BookLikesEntity, (like: any) => like.book)
     likes: BookLikesEntity[];
 
     @CreateDateColumn()

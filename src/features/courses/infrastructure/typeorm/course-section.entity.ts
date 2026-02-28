@@ -1,6 +1,5 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { CourseEntity } from "./Course.entity";
-import { Timestamp } from "typeorm/browser";
 import { CourseLessonsEntity } from "./Course-lessons.entity";
 
 @Entity("CourseSections")
@@ -15,7 +14,7 @@ export class CourseSection extends BaseEntity {
     @Column({ type: "int", nullable: true })
     order?: number
     @CreateDateColumn({ type: "timestamp" })
-    date: Timestamp
-@ManyToMany(()=>CourseLessonsEntity,lessons => lessons.sections)
-lessons:CourseLessonsEntity
+    date: Date
+    @ManyToMany(() => CourseLessonsEntity, lessons => lessons.sections)
+    lessons: CourseLessonsEntity
 }
