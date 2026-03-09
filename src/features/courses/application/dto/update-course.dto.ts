@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsString, IsNotEmpty, IsNumber, IsOptional } from "class-validator";
-import { CreateCourseDto } from "./create-course.dto";
+
 
 export class UpdateCourseDto {
     @ApiProperty({ example: "JavaScript Advanced Updated", description: "Course title", required: false })

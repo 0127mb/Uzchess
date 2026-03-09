@@ -1,8 +1,8 @@
-import { Controller, Post, Body, UseInterceptors, UploadedFile, BadRequestException } from '@nestjs/common';
+import { Controller, Post, Body, UseInterceptors, UploadedFile, BadRequestException, Get } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiTags, ApiConsumes, ApiBody } from '@nestjs/swagger';
 import { BookService } from '../../service/Book.service';
-import { createBookDto } from '../../application/dto/create.book.dto';
+import { createBookDto } from '../../application/dto/create-book.dto';
 import { diskStorage } from 'multer';
 
 @ApiTags('Books')
@@ -54,5 +54,9 @@ export class BooksController {
       throw new BadRequestException('File is required');
     }
     return await this.bookService.createBook(dto, file);
+  }
+  @Get("get")
+  async getBook(){
+return  this.bookService
   }
 }

@@ -1,0 +1,182 @@
+"use strict";
+var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
+    function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
+    var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
+    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
+    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+    var _, done = false;
+    for (var i = decorators.length - 1; i >= 0; i--) {
+        var context = {};
+        for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+        for (var p in contextIn.access) context.access[p] = contextIn.access[p];
+        context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
+        var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+        if (kind === "accessor") {
+            if (result === void 0) continue;
+            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
+            if (_ = accept(result.get)) descriptor.get = _;
+            if (_ = accept(result.set)) descriptor.set = _;
+            if (_ = accept(result.init)) initializers.unshift(_);
+        }
+        else if (_ = accept(result)) {
+            if (kind === "field") initializers.unshift(_);
+            else descriptor[key] = _;
+        }
+    }
+    if (target) Object.defineProperty(target, contextIn.name, descriptor);
+    done = true;
+};
+var __runInitializers = (this && this.__runInitializers) || function (thisArg, initializers, value) {
+    var useValue = arguments.length > 2;
+    for (var i = 0; i < initializers.length; i++) {
+        value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+    }
+    return useValue ? value : void 0;
+};
+var __setFunctionName = (this && this.__setFunctionName) || function (f, name, prefix) {
+    if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
+    return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CourseEntity = void 0;
+const typeorm_1 = require("typeorm");
+const course_section_entity_1 = require("./course-section.entity");
+const Course_lessons_entity_1 = require("./Course-lessons.entity");
+const purchased_course_entity_1 = require("./purchased.course.entity");
+const Course_review_entity_1 = require("./Course.review.entity");
+const Liked_course_entity_1 = require("./Liked.course.entity");
+const auhtor_entity_1 = require("src/features/auhtor/infrastructure/typeorm/auhtor.entity");
+const difficulty_entity_1 = require("src/features/difficulty/infrastracture/typeorm/difficulty.entity");
+const Category_course_entity_1 = require("./Category-course.entity");
+const languages_entity_1 = require("src/features/languagges/infrastracture/typeorm/languages.entity");
+let CourseEntity = (() => {
+    let _classDecorators = [(0, typeorm_1.Entity)("courses")];
+    let _classDescriptor;
+    let _classExtraInitializers = [];
+    let _classThis;
+    let _classSuper = typeorm_1.BaseEntity;
+    let _id_decorators;
+    let _id_initializers = [];
+    let _id_extraInitializers = [];
+    let _CourseSection_decorators;
+    let _CourseSection_initializers = [];
+    let _CourseSection_extraInitializers = [];
+    let _author_decorators;
+    let _author_initializers = [];
+    let _author_extraInitializers = [];
+    let _difficulty_decorators;
+    let _difficulty_initializers = [];
+    let _difficulty_extraInitializers = [];
+    let _category_decorators;
+    let _category_initializers = [];
+    let _category_extraInitializers = [];
+    let _languages_decorators;
+    let _languages_initializers = [];
+    let _languages_extraInitializers = [];
+    let _courseLessons_decorators;
+    let _courseLessons_initializers = [];
+    let _courseLessons_extraInitializers = [];
+    let _purchasedcourses_decorators;
+    let _purchasedcourses_initializers = [];
+    let _purchasedcourses_extraInitializers = [];
+    let _reviews_decorators;
+    let _reviews_initializers = [];
+    let _reviews_extraInitializers = [];
+    let _liked_decorators;
+    let _liked_initializers = [];
+    let _liked_extraInitializers = [];
+    let _title_decorators;
+    let _title_initializers = [];
+    let _title_extraInitializers = [];
+    let _image_decorators;
+    let _image_initializers = [];
+    let _image_extraInitializers = [];
+    let _price_decorators;
+    let _price_initializers = [];
+    let _price_extraInitializers = [];
+    let _newPrice_decorators;
+    let _newPrice_initializers = [];
+    let _newPrice_extraInitializers = [];
+    let _reviewsCount_decorators;
+    let _reviewsCount_initializers = [];
+    let _reviewsCount_extraInitializers = [];
+    let _rating_decorators;
+    let _rating_initializers = [];
+    let _rating_extraInitializers = [];
+    let _SectionsCount_decorators;
+    let _SectionsCount_initializers = [];
+    let _SectionsCount_extraInitializers = [];
+    let _studentsCount_decorators;
+    let _studentsCount_initializers = [];
+    let _studentsCount_extraInitializers = [];
+    var CourseEntity = _classThis = class extends _classSuper {
+        constructor() {
+            super(...arguments);
+            this.id = __runInitializers(this, _id_initializers, void 0);
+            this.CourseSection = (__runInitializers(this, _id_extraInitializers), __runInitializers(this, _CourseSection_initializers, void 0));
+            this.author = (__runInitializers(this, _CourseSection_extraInitializers), __runInitializers(this, _author_initializers, void 0));
+            this.difficulty = (__runInitializers(this, _author_extraInitializers), __runInitializers(this, _difficulty_initializers, void 0));
+            this.category = (__runInitializers(this, _difficulty_extraInitializers), __runInitializers(this, _category_initializers, void 0));
+            this.languages = (__runInitializers(this, _category_extraInitializers), __runInitializers(this, _languages_initializers, void 0));
+            this.courseLessons = (__runInitializers(this, _languages_extraInitializers), __runInitializers(this, _courseLessons_initializers, void 0));
+            this.purchasedcourses = (__runInitializers(this, _courseLessons_extraInitializers), __runInitializers(this, _purchasedcourses_initializers, void 0));
+            this.reviews = (__runInitializers(this, _purchasedcourses_extraInitializers), __runInitializers(this, _reviews_initializers, void 0));
+            this.liked = (__runInitializers(this, _reviews_extraInitializers), __runInitializers(this, _liked_initializers, void 0));
+            this.title = (__runInitializers(this, _liked_extraInitializers), __runInitializers(this, _title_initializers, void 0));
+            this.image = (__runInitializers(this, _title_extraInitializers), __runInitializers(this, _image_initializers, void 0));
+            this.price = (__runInitializers(this, _image_extraInitializers), __runInitializers(this, _price_initializers, void 0));
+            this.newPrice = (__runInitializers(this, _price_extraInitializers), __runInitializers(this, _newPrice_initializers, void 0));
+            this.reviewsCount = (__runInitializers(this, _newPrice_extraInitializers), __runInitializers(this, _reviewsCount_initializers, void 0));
+            this.rating = (__runInitializers(this, _reviewsCount_extraInitializers), __runInitializers(this, _rating_initializers, void 0));
+            this.SectionsCount = (__runInitializers(this, _rating_extraInitializers), __runInitializers(this, _SectionsCount_initializers, void 0));
+            this.studentsCount = (__runInitializers(this, _SectionsCount_extraInitializers), __runInitializers(this, _studentsCount_initializers, void 0));
+            __runInitializers(this, _studentsCount_extraInitializers);
+        }
+    };
+    __setFunctionName(_classThis, "CourseEntity");
+    (() => {
+        const _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create(_classSuper[Symbol.metadata] ?? null) : void 0;
+        _id_decorators = [(0, typeorm_1.PrimaryGeneratedColumn)()];
+        _CourseSection_decorators = [(0, typeorm_1.OneToMany)(() => course_section_entity_1.CourseSection, section => section.course)];
+        _author_decorators = [(0, typeorm_1.ManyToMany)(() => auhtor_entity_1.Auhtors, author => author.course)];
+        _difficulty_decorators = [(0, typeorm_1.ManyToOne)(() => difficulty_entity_1.Difficulty, difficult => difficult.CourseEntity)];
+        _category_decorators = [(0, typeorm_1.ManyToOne)(() => Category_course_entity_1.CategoryCourse, category => category.course)];
+        _languages_decorators = [(0, typeorm_1.ManyToOne)(() => languages_entity_1.Languages, language => language.course)];
+        _courseLessons_decorators = [(0, typeorm_1.OneToMany)(() => Course_lessons_entity_1.CourseLessonsEntity, lesson => lesson.course)];
+        _purchasedcourses_decorators = [(0, typeorm_1.OneToMany)(() => purchased_course_entity_1.PurchasedCourses, purchase => purchase.course)];
+        _reviews_decorators = [(0, typeorm_1.OneToMany)(() => Course_review_entity_1.CourseReviews, review => review.course)];
+        _liked_decorators = [(0, typeorm_1.OneToMany)(() => Liked_course_entity_1.LikedCourse, liked => liked.course)];
+        _title_decorators = [(0, typeorm_1.Column)({ type: "varchar", length: 128 })];
+        _image_decorators = [(0, typeorm_1.Column)({ type: "varchar", length: 128, nullable: true })];
+        _price_decorators = [(0, typeorm_1.Column)({ type: "decimal", precision: 10, scale: 2 })];
+        _newPrice_decorators = [(0, typeorm_1.Column)({ nullable: true, type: "decimal", precision: 10, scale: 2 })];
+        _reviewsCount_decorators = [(0, typeorm_1.Column)({ type: "number", default: 0 })];
+        _rating_decorators = [(0, typeorm_1.Column)({ type: "decimal", precision: 2, scale: 1 })];
+        _SectionsCount_decorators = [(0, typeorm_1.Column)({ type: "number", default: 0 })];
+        _studentsCount_decorators = [(0, typeorm_1.Column)({ type: "number", default: 0 })];
+        __esDecorate(null, null, _id_decorators, { kind: "field", name: "id", static: false, private: false, access: { has: obj => "id" in obj, get: obj => obj.id, set: (obj, value) => { obj.id = value; } }, metadata: _metadata }, _id_initializers, _id_extraInitializers);
+        __esDecorate(null, null, _CourseSection_decorators, { kind: "field", name: "CourseSection", static: false, private: false, access: { has: obj => "CourseSection" in obj, get: obj => obj.CourseSection, set: (obj, value) => { obj.CourseSection = value; } }, metadata: _metadata }, _CourseSection_initializers, _CourseSection_extraInitializers);
+        __esDecorate(null, null, _author_decorators, { kind: "field", name: "author", static: false, private: false, access: { has: obj => "author" in obj, get: obj => obj.author, set: (obj, value) => { obj.author = value; } }, metadata: _metadata }, _author_initializers, _author_extraInitializers);
+        __esDecorate(null, null, _difficulty_decorators, { kind: "field", name: "difficulty", static: false, private: false, access: { has: obj => "difficulty" in obj, get: obj => obj.difficulty, set: (obj, value) => { obj.difficulty = value; } }, metadata: _metadata }, _difficulty_initializers, _difficulty_extraInitializers);
+        __esDecorate(null, null, _category_decorators, { kind: "field", name: "category", static: false, private: false, access: { has: obj => "category" in obj, get: obj => obj.category, set: (obj, value) => { obj.category = value; } }, metadata: _metadata }, _category_initializers, _category_extraInitializers);
+        __esDecorate(null, null, _languages_decorators, { kind: "field", name: "languages", static: false, private: false, access: { has: obj => "languages" in obj, get: obj => obj.languages, set: (obj, value) => { obj.languages = value; } }, metadata: _metadata }, _languages_initializers, _languages_extraInitializers);
+        __esDecorate(null, null, _courseLessons_decorators, { kind: "field", name: "courseLessons", static: false, private: false, access: { has: obj => "courseLessons" in obj, get: obj => obj.courseLessons, set: (obj, value) => { obj.courseLessons = value; } }, metadata: _metadata }, _courseLessons_initializers, _courseLessons_extraInitializers);
+        __esDecorate(null, null, _purchasedcourses_decorators, { kind: "field", name: "purchasedcourses", static: false, private: false, access: { has: obj => "purchasedcourses" in obj, get: obj => obj.purchasedcourses, set: (obj, value) => { obj.purchasedcourses = value; } }, metadata: _metadata }, _purchasedcourses_initializers, _purchasedcourses_extraInitializers);
+        __esDecorate(null, null, _reviews_decorators, { kind: "field", name: "reviews", static: false, private: false, access: { has: obj => "reviews" in obj, get: obj => obj.reviews, set: (obj, value) => { obj.reviews = value; } }, metadata: _metadata }, _reviews_initializers, _reviews_extraInitializers);
+        __esDecorate(null, null, _liked_decorators, { kind: "field", name: "liked", static: false, private: false, access: { has: obj => "liked" in obj, get: obj => obj.liked, set: (obj, value) => { obj.liked = value; } }, metadata: _metadata }, _liked_initializers, _liked_extraInitializers);
+        __esDecorate(null, null, _title_decorators, { kind: "field", name: "title", static: false, private: false, access: { has: obj => "title" in obj, get: obj => obj.title, set: (obj, value) => { obj.title = value; } }, metadata: _metadata }, _title_initializers, _title_extraInitializers);
+        __esDecorate(null, null, _image_decorators, { kind: "field", name: "image", static: false, private: false, access: { has: obj => "image" in obj, get: obj => obj.image, set: (obj, value) => { obj.image = value; } }, metadata: _metadata }, _image_initializers, _image_extraInitializers);
+        __esDecorate(null, null, _price_decorators, { kind: "field", name: "price", static: false, private: false, access: { has: obj => "price" in obj, get: obj => obj.price, set: (obj, value) => { obj.price = value; } }, metadata: _metadata }, _price_initializers, _price_extraInitializers);
+        __esDecorate(null, null, _newPrice_decorators, { kind: "field", name: "newPrice", static: false, private: false, access: { has: obj => "newPrice" in obj, get: obj => obj.newPrice, set: (obj, value) => { obj.newPrice = value; } }, metadata: _metadata }, _newPrice_initializers, _newPrice_extraInitializers);
+        __esDecorate(null, null, _reviewsCount_decorators, { kind: "field", name: "reviewsCount", static: false, private: false, access: { has: obj => "reviewsCount" in obj, get: obj => obj.reviewsCount, set: (obj, value) => { obj.reviewsCount = value; } }, metadata: _metadata }, _reviewsCount_initializers, _reviewsCount_extraInitializers);
+        __esDecorate(null, null, _rating_decorators, { kind: "field", name: "rating", static: false, private: false, access: { has: obj => "rating" in obj, get: obj => obj.rating, set: (obj, value) => { obj.rating = value; } }, metadata: _metadata }, _rating_initializers, _rating_extraInitializers);
+        __esDecorate(null, null, _SectionsCount_decorators, { kind: "field", name: "SectionsCount", static: false, private: false, access: { has: obj => "SectionsCount" in obj, get: obj => obj.SectionsCount, set: (obj, value) => { obj.SectionsCount = value; } }, metadata: _metadata }, _SectionsCount_initializers, _SectionsCount_extraInitializers);
+        __esDecorate(null, null, _studentsCount_decorators, { kind: "field", name: "studentsCount", static: false, private: false, access: { has: obj => "studentsCount" in obj, get: obj => obj.studentsCount, set: (obj, value) => { obj.studentsCount = value; } }, metadata: _metadata }, _studentsCount_initializers, _studentsCount_extraInitializers);
+        __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
+        CourseEntity = _classThis = _classDescriptor.value;
+        if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
+        __runInitializers(_classThis, _classExtraInitializers);
+    })();
+    return CourseEntity = _classThis;
+})();
+exports.CourseEntity = CourseEntity;

@@ -1,5 +1,5 @@
-import { CourseEntity } from "src/features/courses/infrastructure/typeorm/Course.entity";
-import { BookEntity } from "src/features/books/domain/entites/book.entity";
+import { CourseEntity } from "../../../courses/domain/entites/Course.entity";
+import { BookEntity } from "../../../books/domain/entites/book.entity";
 import { BaseEntity, Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("Auhtors")

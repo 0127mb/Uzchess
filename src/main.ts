@@ -2,10 +2,11 @@ import "dotenv/config"
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { AllExceptionsFilter } from "./common/filters/all-exception-filter";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.useGlobalFilters(new AllExceptionsFilter)
   const config = new DocumentBuilder()
     .setTitle('UzChess API')
     .setDescription('UzChess platform API documentation')
@@ -19,9 +20,9 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(3000);
- 
+  await app.listen(3004);
 
-    console.log(`Application running on http://localhost:${3000}/api`);
+
+  console.log(`Application running on http://localhost:${3000}/api`);
 }
 bootstrap();

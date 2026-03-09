@@ -1,6 +1,6 @@
-import { User } from "src/features/user/infrastructure/typeorm/User.entity";
+import { User } from "./User.entity";
 import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm";
-import { CourseLessonsEntity } from "../../../courses/infrastructure/typeorm/Course-lessons.entity";
+import { CourseLessonsEntity } from "../../../courses/domain/entites/Course-lessons.entity";
 
 @Entity("users_lessons")
 export class UsersLessons {

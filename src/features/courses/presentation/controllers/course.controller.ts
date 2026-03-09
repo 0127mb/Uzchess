@@ -1,9 +1,9 @@
 import { Controller, Get, Post, Put, Delete, Param, Body, HttpCode, HttpStatus } from "@nestjs/common";
 import { ApiTags, ApiOperation, ApiResponse, ApiParam } from "@nestjs/swagger";
 import { CourseService } from "../../application/services/course.service";
-import { CreateCourseDto } from "../../application/dto/create-course.dto";
+import { CourseDto } from "../../application/dto/course.dto";
 import { UpdateCourseDto } from "../../application/dto/update-course.dto";
-import { CourseEntity } from "../../infrastructure/typeorm/Course.entity";
+import { CourseEntity } from "../../domain/entites/Course.entity";
 
 @ApiTags("Courses")
 @Controller("courses")
@@ -15,7 +15,7 @@ export class CourseController {
     @ApiOperation({ summary: "Create a new course" })
     @ApiResponse({ status: 201, description: "Course created successfully" })
     @ApiResponse({ status: 400, description: "Bad request" })
-    async createCourse(@Body() dto: CreateCourseDto): Promise<CourseEntity> {
+    async createCourse(@Body() dto:CourseDto): Promise<CourseEntity> {
         return await this.courseService.createCourse(dto);
     }
 

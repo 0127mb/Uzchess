@@ -1,4 +1,4 @@
-import { User } from "src/features/user/infrastructure/typeorm/User.entity";
+import { User } from "../../../user/infrastructure/typeorm/User.entity";
 import { BaseEntity, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { CourseEntity } from "./Course.entity";
 

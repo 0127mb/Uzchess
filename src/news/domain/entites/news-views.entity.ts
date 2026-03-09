@@ -1,5 +1,5 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm";
-import { User } from "src/features/user/infrastructure/typeorm/User.entity";
+import { User } from "../../../features/user/infrastructure/typeorm/User.entity";
 import { NewsEntity } from "./news.entity";
 
 @Entity("NewsViews")
@@ -7,7 +7,7 @@ export class NewsViewsEntity extends BaseEntity {
     @PrimaryColumn()
     userId: number;
 
-    @PrimaryColumn()
+    @Column()
     newsId: number;
 
     @ManyToOne(() => User, user => user.newsViews)

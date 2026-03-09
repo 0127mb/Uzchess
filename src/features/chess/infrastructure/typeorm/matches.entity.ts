@@ -1,8 +1,7 @@
 import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { PlayersEntity } from "./players.entity";
-import { Muchtype } from "src/constants/enum/Matchtype.enum";
-import { Winnertype } from "src/constants/enum/Winnertype.enum";
-
+import { Muchtype } from "../../../../constants/enum/Matchtype.enum";
+import { Winnertype } from "../../../../constants/enum/Winnertype.enum";
 @Entity("Matches")
 export class MatchesEntity extends BaseEntity {
     @PrimaryGeneratedColumn()

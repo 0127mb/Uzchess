@@ -1,5 +1,5 @@
-import { Otptype } from "src/features/auth/domain/enums/Otptype.enum";
-import { User } from "src/features/user/infrastructure/typeorm/User.entity";
+import { Otptype } from "../../../domain/enums/Otptype.enum"; 
+import { User } from "../../../../user/infrastructure/typeorm/User.entity";
 import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("OtpCodes")
@@ -12,7 +12,7 @@ export class OtpCodes extends BaseEntity {
     code: string
     @CreateDateColumn({ type: "timestamp" })
     createdAt: Date
-    @Column({ type: "enum" })
+    @Column({ type: "enum",enum:Otptype })
     type: Otptype
 
 }

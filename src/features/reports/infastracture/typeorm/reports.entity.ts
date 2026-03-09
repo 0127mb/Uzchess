@@ -1,6 +1,6 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { ReportCategoriesEntity } from "./report-categories.entity";
-import { ReportType } from "src/constants/enum/ReportType.enum";
+import { ReportType } from "../../../../constants/enum/ReportType.enum";
 
 @Entity("Reports")
 export class ReportsEntity extends BaseEntity {

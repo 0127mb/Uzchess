@@ -1,11 +1,12 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { CourseEntity } from "./infrastructure/typeorm/Course.entity";
-import { CourseSection } from "./infrastructure/typeorm/course-section.entity";
-import { CourseLessonsEntity } from "./infrastructure/typeorm/Course-lessons.entity";
-import { PurchasedCourses } from "./infrastructure/typeorm/purchased.course.entity";
-import { CourseReviews } from "./infrastructure/typeorm/Course.review.entity";
-import { LikedCourse } from "./infrastructure/typeorm/Liked.course.entity";
+import { CourseEntity } from "./domain/entites/Course.entity"; 
+import { CourseSection } from "./domain/entites/course-section.entity";
+import { CourseLessonsEntity } from "./domain/entites/Course-lessons.entity"; 
+import { PurchasedCourses } from "./domain/entites/purchased.course.entity";
+import { CourseReviews } from "./domain/entites/Course.review.entity"; 
+import { LikedCourse } from "./domain/entites/Liked.course.entity"; 
+import { CategoryCourse } from "./domain/entites/Category-course.entity";
 import { CourseService } from "./application/services/course.service";
 import { CourseController } from "./presentation/controllers/course.controller";
 
@@ -18,6 +19,7 @@ import { CourseController } from "./presentation/controllers/course.controller";
             PurchasedCourses,
             CourseReviews,
             LikedCourse,
+            CategoryCourse,
         ]),
     ],
     controllers: [CourseController],

@@ -17,10 +17,10 @@ import { CoursesModule } from './features/courses/courses.module';
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        url:process.env.DB_URL,
-        entities: ['/**/*.entity.js'],
+        url:configService.get<String>("DB_URL") as string,
+        entities: [__dirname +'/**/*.entity.{js,ts}'],
         synchronize: true,
-        logging: false,
+        logging: true,
       }),
     }),
     BooksModule,

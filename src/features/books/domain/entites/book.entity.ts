@@ -1,8 +1,8 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Auhtors } from "src/features/auhtor/infrastructure/typeorm/auhtor.entity";
+import { Auhtors } from "../../../auhtor/infrastructure/typeorm/auhtor.entity";
 import { BookCategoryEntity } from "./book-category.entity";
-import { Languages } from "src/features/languagges/infrastracture/typeorm/languages.entity";
-import { Difficulty } from "src/features/difficulty/infrastracture/typeorm/difficulty.entity";
+import { Languages } from "../../../languagges/infrastracture/typeorm/languages.entity";
+import { Difficulty } from "../../../difficulty/infrastracture/typeorm/difficulty.entity";
 import { BookReviewsEntity } from "./book-reviews.entity";
 import { BookLikesEntity } from "./book-likes.entity"; 
 
