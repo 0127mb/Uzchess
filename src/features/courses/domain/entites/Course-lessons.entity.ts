@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { CourseEntity } from "./Course.entity";
+import { CourseEntity } from "./course.entity";
 import { CourseSection } from "./course-section.entity";
-import { UsersLessons } from "../../../user/infrastructure/typeorm/users-lessons.entity";
+import { UsersLessons } from "../../../user/domain/entites/users-lessons.entity";
 
 @Entity("CourseLessons")
 export class CourseLessonsEntity {

@@ -2,53 +2,42 @@ import { IsDate, IsInt, IsNotEmpty, IsOptional, IsString, IsNumber } from "class
 import { ApiProperty } from "@nestjs/swagger"
 
 export class GetBookDto {
-    @ApiProperty({ example: "The Great Gatsby", description: "Book title" })
-    @IsString()
-    @IsNotEmpty()
+    @ApiProperty({})
+
     title: string
 
-    @ApiProperty({ example: "A classic novel by F. Scott Fitzgerald", description: "Book description" })
-    @IsNotEmpty()
-    @IsString()
+    @ApiProperty({})
     description: string
 
-    @ApiProperty({ example: 25.99, description: "Book price" })
-    @IsNumber()
-    @IsNotEmpty()
+    @ApiProperty({})
+
     price: number
 
-    @ApiProperty({ example: 19.99, description: "Discounted price", required: false })
-    @IsNumber()
-    @IsOptional()
+    @ApiProperty({})
+
     newPrice?: number
 
-    @ApiProperty({ example: 1, description: "Author ID" })
-    @IsInt()
-    @IsNotEmpty()
+    @ApiProperty({})
+
     authorId: number
 
-    @ApiProperty({ example: 2, description: "Category ID" })
-    @IsInt()
-    @IsNotEmpty()
+    @ApiProperty({})
+
     categoryId: number
 
-    @ApiProperty({ example: 3, description: "Language ID" })
-    @IsInt()
-    @IsNotEmpty()
+    @ApiProperty({})
+
     languageId: number
 
-    @ApiProperty({ example: 1, description: "Difficulty ID" })
-    @IsInt()
-    @IsNotEmpty()
+    @ApiProperty({})
+
     difficultyId: number
 
-    @ApiProperty({ example: 300, description: "Number of pages" })
-    @IsInt()
-    @IsNotEmpty()
+    @ApiProperty({})
+
     pages: number
 
-    @ApiProperty({ example: "1925-04-10", description: "Publication date" })
-    @IsDate()
-    @IsNotEmpty()
+    @ApiProperty({})
+
     pubDate: Date
 }

@@ -1,4 +1,4 @@
-import { IsDate, IsInt, IsNotEmpty, IsOptional, IsString, IsNumber } from "class-validator"
+import { IsDate, IsInt, IsNotEmpty, IsOptional, IsString, IsNumber, Allow } from "class-validator"
 import { ApiProperty } from "@nestjs/swagger"
 
 export class createBookDto {
@@ -21,26 +21,11 @@ export class createBookDto {
     @IsNumber()
     @IsOptional()
     newPrice?: number
+    @Allow()
+    @IsOptional()
+    @ApiProperty({ description: "image", format: "binary" })
+    image?: string;
 
-    @ApiProperty({ example: 1, description: "Author ID" })
-    @IsInt()
-    @IsNotEmpty()
-    authorId: number
-
-    @ApiProperty({ example: 2, description: "Category ID" })
-    @IsInt()
-    @IsNotEmpty()
-    categoryId: number
-
-    @ApiProperty({ example: 3, description: "Language ID" })
-    @IsInt()
-    @IsNotEmpty()
-    languageId: number
-
-    @ApiProperty({ example: 1, description: "Difficulty ID" })
-    @IsInt()
-    @IsNotEmpty()
-    difficultyId: number
 
     @ApiProperty({ example: 300, description: "Number of pages" })
     @IsInt()

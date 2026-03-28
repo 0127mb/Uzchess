@@ -7,16 +7,16 @@ export class NewsEntity extends BaseEntity {
     id: number;
 
     @Column({ type: "varchar", length: 256 })
-    title: string;
+    title!: string;
 
     @Column({ type: "varchar", length: 128 })
-    image: string;
+    image!: string;
 
     @Column({ type: "text" })
-    content: string;
+    content!: string;
 
-    @CreateDateColumn()
-    date: Date;
+    @CreateDateColumn({type:"timestamp"})
+    date!: Date;
 
     @OneToMany(() => NewsViewsEntity, view => view.news)
     views: NewsViewsEntity[];

@@ -1,6 +1,6 @@
-import { User } from "../../../user/infrastructure/typeorm/User.entity";
+import { User } from "../../../user/domain/entites/User.entity"; 
 import { BaseEntity, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { CourseEntity } from "./Course.entity";
+import { CourseEntity } from "./course.entity";
 
 @Entity("LikedCourses")
 export class LikedCourse extends BaseEntity {

@@ -1,13 +1,13 @@
 import { BaseEntity, Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { CourseSection } from "./course-section.entity";
 import { CourseLessonsEntity } from "./Course-lessons.entity";
-import { PurchasedCourses } from "./purchased.course.entity";
-import { CourseReviews } from "./Course.review.entity";
+import { CoursesPurchased } from "./course-purchased.entity";
+import { CourseReviews } from "./course.review.entity";
 import { LikedCourse } from "./Liked.course.entity";
 import { Auhtors } from "../../../auhtor/infrastructure/typeorm/auhtor.entity";
-import { Difficulty } from "../../../difficulty/infrastracture/typeorm/difficulty.entity";
+import { Difficulty } from "../../../difficulty/domain/entites/difficulty.entity"; 
 import { CategoryCourse } from "./Category-course.entity";
-import { Languages } from "../../../languagges/infrastracture/typeorm/languages.entity";
+import { Languages } from "../../../languagges/domain/entites/languages.entity"; 
 @Entity("courses")
 
 export class CourseEntity extends BaseEntity {
@@ -25,8 +25,8 @@ export class CourseEntity extends BaseEntity {
     languages: Languages
     @OneToMany(() => CourseLessonsEntity, lesson => lesson.course)
     courseLessons: CourseLessonsEntity[]
-    @OneToMany(() => PurchasedCourses, purchase => purchase.course)
-    purchasedcourses: PurchasedCourses[]
+    @OneToMany(() => CoursesPurchased, purchase => purchase.course)
+    purchasedcourses: CoursesPurchased[]
     @OneToMany(() => CourseReviews, review => review.course)
     reviews: CourseReviews[]
     @OneToMany(() => LikedCourse, liked => liked.course)

@@ -8,9 +8,9 @@ import { diskStorage } from 'multer';
 @ApiTags('Books')
 @Controller('books')
 export class BooksController {
-  constructor(private readonly bookService: BookService) {}
+  constructor(private readonly bookService: BookService) { }
 
-  @Post('create')
+
   @UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
@@ -23,29 +23,7 @@ export class BooksController {
     }),
   )
   @ApiConsumes('multipart/form-data')
-  @ApiBody({
-    schema: {
-      type: 'object',
-      properties: {
-        file: {
-          type: 'string',
-          format: 'binary',
-          description: 'Book image file',
-        },
-        title: { type: 'string' },
-        description: { type: 'string' },
-        price: { type: 'number' },
-        newPrice: { type: 'number' },
-        authorId: { type: 'number' },
-        categoryId: { type: 'number' },
-        languageId: { type: 'number' },
-        difficultyId: { type: 'number' },
-        pages: { type: 'number' },
-        pubDate: { type: 'string', format: 'date' },
-      },
-      required: ['file', 'title', 'description', 'price', 'authorId', 'categoryId', 'languageId', 'difficultyId', 'pages', 'pubDate'],
-    },
-  })
+  @Post('create')
   async createBook(
     @Body() dto: createBookDto,
     @UploadedFile() file: Express.Multer.File,
@@ -56,7 +34,7 @@ export class BooksController {
     return await this.bookService.createBook(dto, file);
   }
   @Get("get")
-  async getBook(){
-return  this.bookService
+  async getBook() {
+    return this.bookService.getBook()
   }
 }

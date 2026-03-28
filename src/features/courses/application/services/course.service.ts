@@ -1,6 +1,6 @@
 import { Injectable, BadRequestException, InternalServerErrorException, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { CourseEntity } from "../../domain/entites/Course.entity";
+import { CourseEntity } from "../../domain/entites/course.entity";
 import { Repository } from "typeorm";
 import { CourseDto } from "../dto/course.dto";
 import { UpdateCourseDto } from "../dto/update-course.dto";

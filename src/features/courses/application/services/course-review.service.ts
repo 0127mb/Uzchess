@@ -1,6 +1,9 @@
+
+
+
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { CourseReviews } from "../../domain/entites/Course.review.entity";
+import { CourseReviews } from "../../domain/entites/course.review.entity";
 import { Repository } from "typeorm";
 import { CourseReviewDto } from "../dto/course-review.dto";
 

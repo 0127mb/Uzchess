@@ -1,5 +1,5 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { CourseEntity } from "./Course.entity";
+import { CourseEntity } from "./course.entity";
 import { CourseLessonsEntity } from "./Course-lessons.entity";
 
 @Entity("CourseSections")

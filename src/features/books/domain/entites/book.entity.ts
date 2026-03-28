@@ -1,10 +1,11 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Auhtors } from "../../../auhtor/infrastructure/typeorm/auhtor.entity";
 import { BookCategoryEntity } from "./book-category.entity";
-import { Languages } from "../../../languagges/infrastracture/typeorm/languages.entity";
-import { Difficulty } from "../../../difficulty/infrastracture/typeorm/difficulty.entity";
+import { Languages } from "../../../languagges/domain/entites/languages.entity";
+import { Difficulty } from "../../../difficulty/domain/entites/difficulty.entity";
 import { BookReviewsEntity } from "./book-reviews.entity";
 import { BookLikesEntity } from "./book-likes.entity"; 
+import { ReportsEntity } from "../../../reports/domain/entites/reports.entity";
 
 @Entity("Books")
 export class BookEntity extends BaseEntity {
@@ -58,4 +59,6 @@ export class BookEntity extends BaseEntity {
 
     @CreateDateColumn()
     createdAt: Date;
+    @ManyToOne(()=>ReportsEntity,report =>report.book)
+    report:ReportsEntity
 }

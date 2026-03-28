@@ -1,5 +1,6 @@
-export enum Otptype{
+export enum Otptype {
     register = "register",
     passwordReset = "passwordReset",
     numberChange = "numberChange",
+    emailchange = "emailchange"
 }

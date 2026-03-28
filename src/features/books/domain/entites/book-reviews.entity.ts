@@ -1,5 +1,5 @@
 import { BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "../../../user/infrastructure/typeorm/User.entity";
+import { User } from "../../../user/domain/entites/User.entity";
 import { BookEntity } from "./book.entity";
 
 @Entity("BookReviews")

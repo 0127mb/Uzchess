@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { CourseSection } from "../../domain/entites/course-section.entity";
+import { CourseSection } from "../../domain/entites/course-section.entity"; 
 import { Repository } from "typeorm";
 import { CourseSectionDto } from "../dto/course-section.dto";
 

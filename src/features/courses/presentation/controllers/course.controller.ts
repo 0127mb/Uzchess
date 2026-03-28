@@ -3,7 +3,7 @@ import { ApiTags, ApiOperation, ApiResponse, ApiParam } from "@nestjs/swagger";
 import { CourseService } from "../../application/services/course.service";
 import { CourseDto } from "../../application/dto/course.dto";
 import { UpdateCourseDto } from "../../application/dto/update-course.dto";
-import { CourseEntity } from "../../domain/entites/Course.entity";
+import { CourseEntity } from "../../domain/entites/course.entity"; 
 
 @ApiTags("Courses")
 @Controller("courses")

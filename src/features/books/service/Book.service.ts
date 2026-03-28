@@ -1,4 +1,4 @@
-import { Injectable, BadRequestException, InternalServerErrorException, MethodNotAllowedException } from "@nestjs/common";
+import { Injectable, BadRequestException, InternalServerErrorException, MethodNotAllowedException, NotFoundException } from "@nestjs/common";
 import { createBookDto } from "../application/dto/create-book.dto";
 import { InjectRepository } from "@nestjs/typeorm";
 import { BookEntity } from "../domain/entites/book.entity";
@@ -28,4 +28,15 @@ export class BookService {
             throw new MethodNotAllowedException("Failed to create book");
         }
     }
+    async getBook(){
+     
+        const book =  await this.bookRepo.find()
+        if(book.length === 0){
+            throw new NotFoundException("book not created yet")
+
+        }
+           return await this.bookRepo.find()
+    }
+
+    
 }

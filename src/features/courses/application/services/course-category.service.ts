@@ -19,7 +19,7 @@ export class CourseCategoryService {
             console.error("eror creating course category", error)
             throw new InternalServerErrorException("Failed to create category")
         }
-    }
+    } 
     async getCategory(id: number): Promise<CategoryCourse> {
         return this.categoryrepo.findOneBy({ id })
     }
